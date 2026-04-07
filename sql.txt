@@ -1,0 +1,63 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/liao_towns
+    username: liao
+    password: 1234
+
+create DATABASE liao_towns;
+use liao_towns;
+ALTER TABLE user 
+ADD COLUMN age INT NOT NULL DEFAULT 0 COMMENT '年龄';
+//用户表
+create table user (
+                      id int unsigned primary key auto_increment comment 'ID',
+                      username varchar(20) not null unique comment 'u_name',
+                      password varchar(40) comment 'u_password',
+                      type varchar(20) default 'student' comment 'u_type',
+                      clazz varchar(20) default '' comment 'u_class',
+                      email varchar(64) default '' comment 'u_email',
+                      create_time datetime not null comment 'u_c_time',
+                      modify_time datetime not null comment 'u_m_time'
+) comment 'user_table';
+//班级表
+create table class (
+    id int unsigned primary key auto_increment comment 'ID',
+    name varchar(20) not null unique comment 'class_name',
+    header varchar(20) comment 'head_teacher',
+    remark varchar(300) comment 'class_remark',
+    create_time datetime not null comment 'c_c_time',
+    modify_time datetime not null comment 'c_m_time'
+) comment 'class_table';
+//通知表
+create table notice (
+    id int unsigned primary key auto_increment comment 'ID',
+    title varchar(80) not null comment 'notice_title',
+    content varchar(80) not null comment 'notice_content',
+    author varchar(80) not null comment 'notice_author',
+    create_time datetime not null comment 'n_c_time',
+    modify_time datetime not null comment 'n_m_time'
+) comment 'notice_table';
+//成绩表
+create table score (
+    id int unsigned primary key auto_increment comment 'ID',
+    student_id int not null comment 'score_sid',
+    term varchar(40) not null comment 'score_term',
+    content varchar(100) not null comment 'score_content',
+    remark varchar(80) comment 'score_author',
+    create_time datetime not null comment 's_c_time',
+    modify_time datetime not null comment 's_m_time'
+) comment 'score_table';
+//请假表
+create table ask (
+    id int unsigned primary key auto_increment comment 'ID',
+    type varchar(20) not null comment 'l_type',
+    content varchar(200) not null comment 'l_content',
+    student_id int not null comment 'l_sid',
+    student_name varchar(40) not null comment 'l_sname',
+    master_id int not null comment 'l_mid',
+    student_master varchar(40) not null comment 'l_mname',
+    status int default 0 comment 'score_author',
+    create_time datetime not null comment 's_c_time',
+    modify_time datetime not null comment 's_m_time'
+) comment 'ask_table';

@@ -1,0 +1,12 @@
+server:
+  port: 8823
+#启用 MyBatis 的下划线转驼峰映射，使数据库字段 snake_case 自动映射为 Java 属性 camelCase
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/liao_students
+    username: liao
+    password: 1234

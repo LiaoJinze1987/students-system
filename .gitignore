@@ -1,0 +1,14 @@
+# node
+vue/node_modules/
+vue/dist/
+
+# java
+server/target/
+*.log
+
+# idea
+.idea/
+*.iml
+
+# system
+.DS_Store
