@@ -3,7 +3,8 @@ import { useDataStore } from '@/store/data'
 
 const request = axios.create({
     baseURL: 'https://students-system-production-2c77.up.railway.app',
-    timeout: 10 * 1000
+    timeout: 10 * 1000,
+    withCredentials: true
 })
 
 //token no need
@@ -21,7 +22,8 @@ request.interceptors.request.use(config => {
         dataStore = useDataStore()
     }
     //const isWhite = whiteList.some(url => config.url.includes(url))
-    const isWhite = whiteList.some(url => config.url.startsWith(url))
+    const isWhite = whiteList.some(url => config.url.endsWith(url))
+    //const isWhite = whiteList.some(url => config.url.startsWith(url))
     if (dataStore.token && !isWhite) {
         config.headers = config.headers || {}
         config.headers.Authorization = dataStore.token

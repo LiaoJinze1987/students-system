@@ -28,8 +28,8 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("https://students-system-coral.vercel.app") // 指定 Vercel 域名
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedOrigins("https://students-system-coral.vercel.app")
+                .allowedMethods("*")
                 .allowCredentials(true)
                 .allowedHeaders("*");
     }
