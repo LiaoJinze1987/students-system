@@ -1,5 +1,5 @@
 server:
-  port: ${PORT:8080}
+  port: 8823
 #启用 MyBatis 的下划线转驼峰映射，使数据库字段 snake_case 自动映射为 Java 属性 camelCase
 mybatis:
   configuration:

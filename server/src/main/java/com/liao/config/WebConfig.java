@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -22,15 +23,20 @@ public class WebConfig implements WebMvcConfigurer {
                 "/user/register",
                 "/class/list"
         );
+        //不拦截登录和注册接口
         registry.addInterceptor(loginInterceptor).excludePathPatterns(excludePaths);
     }
 
+    //测试用，先注释
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("https://students-system-coral.vercel.app")
+                .allowedMethods("*")
+                .allowedHeaders("*");
+       /* registry.addMapping("/**")
+                .allowedOriginPatterns("http://localhost:3000", "https://students-system-coral.vercel.app")
                 .allowedMethods("*")
                 .allowCredentials(true)
-                .allowedHeaders("*");
+                .allowedHeaders("*");*/
     }
 }

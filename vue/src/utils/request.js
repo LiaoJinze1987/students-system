@@ -2,9 +2,9 @@ import axios from 'axios'
 import { useDataStore } from '@/store/data'
 
 const request = axios.create({
-    baseURL: 'https://students-system-production-2c77.up.railway.app',
+    baseURL: 'http://localhost:8823',
     timeout: 10 * 1000,
-    withCredentials: true
+    //withCredentials: true
 })
 
 //token no need

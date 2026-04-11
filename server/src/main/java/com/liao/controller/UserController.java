@@ -92,7 +92,7 @@ public class UserController {
 
     @GetMapping("/allTeachers")
     public Result<List<User>> allTeachers() {
-        List<User> list = userService.findAllTeachers();
+        List<User> list = userService.findAllStudents();
         if(list != null) {
             return Result.success(list);
         } else {
